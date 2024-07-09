@@ -14,7 +14,7 @@ def generate_poem(topic):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a poet."},
+            {"role": "system", "content": "당신은 시인입니다."},
             {"role": "user", "content": prompt},
         ],
         max_tokens=150,
