@@ -11,14 +11,17 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 def generate_poem(topic):
     prompt = f"{topic}에 대한 시를 한국어로 작성해줘"
 
-    response = openai.Completion.create(
-        engine="gpt-3.5-turbo",  # 혹은 "text-davinci-003"을 사용할 수 있습니다.
-        prompt=prompt,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a poet."},
+            {"role": "user", "content": prompt},
+        ],
         max_tokens=150,
         temperature=0.7,
     )
 
-    poem = response.choices[0].text.strip()
+    poem = response.choices[0].message["content"].strip()
     return poem
 
 
