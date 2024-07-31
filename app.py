@@ -17,7 +17,7 @@ chat_model = ChatOpenAI(openai_api_key=openai_api_key, model_name="gpt-4o")
 # 수업계획서 생성 함수
 def generate_syllabus(subject_name, course_overview, course_objectives):
     prompt = f"""
-    너는 수업계획서 작성 전문가이다. 다음 정보를 바탕으로 수업계획서를 표로만 작성해줘:
+    너는 수업계획서 작성 전문가이다. 다음 정보를 바탕으로 15주차 분량(8주차:중간고사,15주차:기말고사 고정)의 수업계획서를 표로만 작성해줘:
     과목명: {subject_name}
     교과목 개요: {course_overview}
     수업목표: {course_objectives}
